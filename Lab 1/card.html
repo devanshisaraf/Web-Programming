@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Designer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+        }
+        .controls {
+            margin-right: 20px;
+        }
+        .controls label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            margin-top: 20px;
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <p>Devanshi Saraf</p>
+    <h1>Birthday Card Designer</h1>
+    <div class="container">
+        <div class="controls">
+            <label>
+                Choose a background color:
+                <select id="backgroundColor">
+                    <option value="yellow">Yellow</option>
+                    <option value="lightblue">Light Blue</option>
+                    <option value="pink">Pink</option>
+                    <option value="lightgreen">Light Green</option>
+                </select>
+            </label>
+
+            <label>
+                Choose a font:
+                <select id="font">
+                    <option value="Verdana">Verdana</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </label>
+
+            <label>
+                Specify a numeric font size:
+                <input type="number" id="fontSize" value="25">
+            </label>
+
+            <label>
+                Choose a border style:
+                <input type="radio" name="border" value="none" checked> None
+                <input type="radio" name="border" value="double"> Double
+                <input type="radio" name="border" value="solid"> Solid
+            </label>
+
+            <label>
+                <input type="checkbox" id="addPicture" checked> Add the Default Picture
+            </label>
+
+            <label>
+                Enter the greeting text below:
+                <textarea id="greetingText" rows="3">Happy Birthday, and many more</textarea>
+            </label>
+
+            <button onclick="updateCard()">Update</button>
+        </div>
+
+        <div class="card" id="card">
+            <div id="greeting">Happy Birthday, and many more</div>
+            <img id="defaultPicture" src="https://m.media-amazon.com/images/I/61Nt9XzaOPL.jpg" alt="Birthday Cake">
+        </div>
+    </div>
+
+    <script>
+        function updateCard() {
+            const card = document.getElementById('card');
+            const greeting = document.getElementById('greeting');
+            const picture = document.getElementById('defaultPicture');
+
+            const backgroundColor = document.getElementById('backgroundColor').value;
+            const font = document.getElementById('font').value;
+            const fontSize = document.getElementById('fontSize').value;
+            const borderStyle = document.querySelector('input[name="border"]:checked').value;
+            const addPicture = document.getElementById('addPicture').checked;
+            const greetingText = document.getElementById('greetingText').value;
+
+            card.style.backgroundColor = backgroundColor;
+            greeting.style.fontFamily = font;
+            greeting.style.fontSize = fontSize + 'px';
+            card.style.border = borderStyle === 'none' ? 'none' : 5px ${borderStyle} black;
+            greeting.textContent = greetingText;
+
+            picture.style.display = addPicture ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .bio-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bio-form">
+        <h3 class="text-center">Student Bio-Data Form</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+            <div class="form-group">
+                <label>Hobbies:</label><br>
+                <input type="checkbox" value="Reading"> Reading
+                <input type="checkbox" value="Sports"> Sports
+                <input type="checkbox" value="Music"> Music
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" class="form-control" id="age" placeholder="Enter your age">
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select class="form-control" id="course">
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="B.Sc">B.Sc</option>
+                    <option value="B.A">B.A</option>
+                    <option value="M.Tech">M.Tech</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Subjects:</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Select</th>
+                        <th>Subject</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" value="Math"></td>
+                        <td>Math</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" value="Science"></td>
+                        <td>Science</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" value="History"></td>
+                        <td>History</td>
+                    </tr>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

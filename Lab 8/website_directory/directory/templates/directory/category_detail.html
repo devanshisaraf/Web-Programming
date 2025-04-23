@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }}</title>
+</head>
+<body>
+    <h1>{{ category.name }}</h1>
+    <p>Visits: {{ category.visits }} | Likes: {{ category.likes }}</p>
+    <h2>Pages:</h2>
+    <ul>
+        {% for page in pages %}
+            <li><a href="{{ page.url }}" target="_blank">{{ page.title }}</a> (Views: {{ page.views }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

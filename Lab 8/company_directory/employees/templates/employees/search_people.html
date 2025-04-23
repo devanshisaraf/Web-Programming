@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search People</title>
+</head>
+<body>
+    <h2>Search Employees by Company</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result %}
+        <h3>Results:</h3>
+        <table border="1">
+            <tr>
+                <th>Person Name</th>
+                <th>Company</th>
+                <th>City</th>
+            </tr>
+            {% for row in result %}
+            <tr>
+                <td>{{ row.person_name }}</td>
+                <td>{{ row.company_name }}</td>
+                <td>{{ row.city }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

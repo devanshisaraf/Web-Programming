@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Information Portal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #eef2f3;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .top-section {
+            background: #28a745;
+            color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bottom-section {
+            display: flex;
+            gap: 20px;
+        }
+        .bottom-section .part {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            text-align: center;
+        }
+        .btn-custom {
+            width: 100%;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <h2>Classroom Information Portal</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter student name">
+            <div class="input-group-append">
+                <button class="btn btn-warning" type="button">Search</button>
+            </div>
+        </div>
+        <span class="badge badge-light">Student Portal</span>
+    </div>
+
+    <div class="bottom-section">
+        <div class="part">
+            <h4>Announcements</h4>
+            <button type="button" class="btn btn-primary btn-custom">View Announcements</button>
+            <div class="btn-group mt-3">
+                <button type="button" class="btn btn-success">Upcoming</button>
+                <button type="button" class="btn btn-danger">Past</button>
+            </div>
+        </div>
+        <div class="part">
+            <h4>Assignments</h4>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter assignment code">
+                <div class="input-group-append">
+                    <button class="btn btn-info">Check</button>
+                </div>
+            </div>
+        </div>
+        <div class="part">
+            <h4>Contact Teacher</h4>
+            <button class="btn btn-secondary btn-custom">Send Message</button>
+            <span class="badge badge-danger mt-3">Urgent</span>
+        </div>
+    </div>
+    <p>Made By Devanshi Saraf</p>
+</body>
+</html>

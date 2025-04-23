@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee CRUD Operations</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .crud-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="crud-container">
+        <h2 class="text-center">Employee Management</h2>
+        <form id="employeeForm">
+            <div class="form-group">
+                <label for="empName">Name:</label>
+                <input type="text" class="form-control" id="empName" placeholder="Enter employee name">
+            </div>
+            <div class="form-group">
+                <label for="empEmail">Email:</label>
+                <input type="email" class="form-control" id="empEmail" placeholder="Enter employee email">
+            </div>
+            <div class="form-group">
+                <label for="empPosition">Position:</label>
+                <input type="text" class="form-control" id="empPosition" placeholder="Enter position">
+            </div>
+            <input type="hidden" id="editIndex">
+            <button type="button" class="btn btn-success btn-block" onclick="addOrUpdateEmployee()">Add Employee</button>
+        </form>
+        <hr>
+        <h4 class="text-center">Employee List</h4>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTable">
+            </tbody>
+        </table>
+        <br><br>
+        <p>Made by Devanshi Saraf</p>
+    </div>
+
+    <script>
+        function addOrUpdateEmployee() {
+            var name = document.getElementById('empName').value;
+            var email = document.getElementById('empEmail').value;
+            var position = document.getElementById('empPosition').value;
+            var editIndex = document.getElementById('editIndex').value;
+
+            if (name === '' || email === '' || position === '') {
+                alert('Please fill all fields');
+                return;
+            }
+
+            var table = document.getElementById('employeeTable');
+            if (editIndex === '') {
+                var row = table.insertRow();
+                row.innerHTML = `<td>${name}</td><td>${email}</td><td>${position}</td>
+                                 <td>
+                                     <button class='btn btn-primary btn-sm' onclick='editRow(this)'>Edit</button>
+                                     <button class='btn btn-danger btn-sm' onclick='deleteRow(this)'>Delete</button>
+                                 </td>`;
+            } else {
+                table.rows[editIndex].cells[0].innerHTML = name;
+                table.rows[editIndex].cells[1].innerHTML = email;
+                table.rows[editIndex].cells[2].innerHTML = position;
+                document.getElementById('editIndex').value = '';
+                document.querySelector('button.btn-success').innerText = 'Add Employee';
+            }
+            document.getElementById('employeeForm').reset();
+        }
+
+        function deleteRow(btn) {
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        function editRow(btn) {
+            var row = btn.parentNode.parentNode;
+            document.getElementById('empName').value = row.cells[0].innerHTML;
+            document.getElementById('empEmail').value = row.cells[1].innerHTML;
+            document.getElementById('empPosition').value = row.cells[2].innerHTML;
+            document.getElementById('editIndex').value = row.rowIndex - 1;
+            document.querySelector('button.btn-success').innerText = 'Update Employee';
+        }
+    </script>
+</body>
+</html>

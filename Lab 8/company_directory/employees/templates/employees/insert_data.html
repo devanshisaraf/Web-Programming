@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Data</title>
+</head>
+<body>
+    <h2>Insert Data into WORKS Table</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Insert</button>
+    </form>
+</body>
+</html>
