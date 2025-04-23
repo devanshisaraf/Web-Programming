@@ -1,0 +1,10 @@
+django-admin startproject student_management
+cd student_management
+django-admin startapp student_app
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+python manage.py runserver
